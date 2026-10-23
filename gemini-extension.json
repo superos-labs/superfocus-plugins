@@ -1,0 +1,10 @@
+{
+  "name": "superfocus",
+  "version": "1.0.0",
+  "description": "Plan your day, review your week, capture tasks and check in on goals with your Superfocus season, goals, tasks and calendar.",
+  "mcpServers": {
+    "superfocus": {
+      "httpUrl": "https://mcp.superfocus.me/mcp"
+    }
+  }
+}

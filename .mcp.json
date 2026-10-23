@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "superfocus": {
+      "type": "http",
+      "url": "https://mcp.superfocus.me/mcp"
+    }
+  }
+}

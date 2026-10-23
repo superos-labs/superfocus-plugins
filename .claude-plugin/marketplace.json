@@ -1,0 +1,14 @@
+{
+  "name": "superfocus-plugins",
+  "owner": {
+    "name": "SuperOS Labs",
+    "url": "https://superfocus.me"
+  },
+  "plugins": [
+    {
+      "name": "superfocus",
+      "source": "./",
+      "description": "Plan your day, review your week, capture tasks and check in on goals with your Superfocus season, goals, tasks and calendar."
+    }
+  ]
+}
