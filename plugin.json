@@ -3,11 +3,21 @@
   "name": "superfocus",
   "version": "1.0.0",
   "description": "Plan your day, review your week, capture tasks and check in on goals with your Superfocus season, goals, tasks and calendar.",
-  "author": { "name": "SuperOS Labs", "email": "help@superfocus.me", "url": "https://superfocus.me" },
+  "author": {
+    "name": "SuperOS Labs",
+    "email": "help@superfocus.me",
+    "url": "https://superfocus.me"
+  },
   "homepage": "https://superfocus.me/mcp",
   "repository": "https://github.com/superos-labs/superfocus-plugins",
   "license": "MIT",
-  "keywords": ["planning", "productivity", "calendar", "goals", "tasks"],
+  "keywords": [
+    "planning",
+    "productivity",
+    "calendar",
+    "goals",
+    "tasks"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
@@ -16,7 +26,10 @@
         "longDescription": "Superfocus keeps your season, goals, milestones, tasks and calendar in one place. With this plugin you can plan your day with fewer, longer blocks, run a weekly review that compares hours per goal with your intent, turn pasted notes into tasks mapped to your goals, and check progress on each goal. Reading is always available. Changes to your calendar, tasks and goals only happen if you allow edits when you connect, and you are asked to confirm before anything is written.",
         "developerName": "SuperOS Labs",
         "category": "Productivity",
-        "capabilities": ["Read", "Write"],
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
         "websiteURL": "https://superfocus.me",
         "privacyPolicyURL": "https://superfocus.me/privacy",
         "termsOfServiceURL": "https://superfocus.me/terms",
@@ -28,6 +41,75 @@
         ],
         "composerIcon": "./assets/composerIcon.png",
         "logo": "./assets/icon.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Show the week as an interactive planner",
+              "prompt": "Show my week in Superfocus",
+              "tools_triggered": [
+                "show_week"
+              ],
+              "expected_behavior": "Renders the planner card for the current week with the account's existing blocks in day columns. The user can switch to a single day, go to the previous or next week, and open the planner fullscreen. Nothing is written."
+            },
+            {
+              "description": "Plan the afternoon as proposed changes the user can adjust",
+              "prompt": "Plan my afternoon in Superfocus around my most important task",
+              "tools_triggered": [
+                "get_me",
+                "get_tasks",
+                "get_blocks",
+                "propose_changes"
+              ],
+              "expected_behavior": "Reads the profile, open tasks and today's blocks, then calls propose_changes. The planner shows the proposed blocks as dashed blocks next to the existing ones. Nothing is written until the user taps Keep on the card; Discard leaves the calendar unchanged."
+            },
+            {
+              "description": "Turn pasted notes into tasks under the right goals",
+              "prompt": "Add these to Superfocus as tasks under the right goals: draft the Q4 budget, call the landlord about the lease, book a dentist appointment",
+              "tools_triggered": [
+                "get_goals",
+                "create_tasks"
+              ],
+              "expected_behavior": "Reads the goals, maps each item to the best matching goal, lists the mapping and asks for confirmation, then creates the three tasks and says which goal each one went under."
+            },
+            {
+              "description": "Check progress on goals and milestones",
+              "prompt": "How are my Superfocus goals doing this season?",
+              "tools_triggered": [
+                "get_goals"
+              ],
+              "expected_behavior": "Reads goals with milestones and summarizes progress per goal, the next milestone and its deadline, and anything that looks stuck. Nothing is written."
+            },
+            {
+              "description": "Run a weekly review",
+              "prompt": "Run my weekly review in Superfocus",
+              "tools_triggered": [
+                "get_reviews",
+                "get_focus",
+                "get_goals"
+              ],
+              "expected_behavior": "Reads the latest weekly review, the focus score and hours per goal for the last 7 days, and the goals, then writes a short review with wins, misses, hours per goal against priority and one suggestion per goal. Offers to plan next week. Nothing is written."
+            }
+          ],
+          "negative": [
+            {
+              "description": "General knowledge question unrelated to planning",
+              "prompt": "What is the capital of Australia?"
+            },
+            {
+              "description": "Creative writing with no calendar or task intent",
+              "prompt": "Write a short poem about autumn leaves"
+            },
+            {
+              "description": "Travel booking, which Superfocus does not do",
+              "prompt": "Book me a flight from London to Lisbon next Friday"
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "First release. See your day or week as an interactive planner, plan your day with proposed blocks you can drag before keeping them, run a weekly review, turn notes into tasks under your goals and check in on goal progress."
       }
     }
   }
