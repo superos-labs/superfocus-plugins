@@ -20,11 +20,11 @@
         "websiteURL": "https://superfocus.me",
         "privacyPolicyURL": "https://superfocus.me/privacy",
         "termsOfServiceURL": "https://superfocus.me/terms",
+        "supportURL": "https://superfocus.me/contact",
         "defaultPrompt": [
           "Plan my day",
           "Run my weekly review",
-          "Turn these notes into tasks for my goals",
-          "How are my goals doing?"
+          "Turn these notes into tasks for my goals"
         ],
         "composerIcon": "./assets/composerIcon.png",
         "logo": "./assets/icon.png"
