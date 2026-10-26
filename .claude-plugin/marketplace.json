@@ -4,6 +4,9 @@
     "name": "SuperOS Labs",
     "url": "https://superfocus.me"
   },
+  "metadata": {
+    "description": "Superfocus plugins: plan your day, review your week, capture tasks and check in on goals."
+  },
   "plugins": [
     {
       "name": "superfocus",
