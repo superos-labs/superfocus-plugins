@@ -48,47 +48,31 @@
             {
               "description": "Show the week as an interactive planner",
               "prompt": "Show my week in Superfocus",
-              "tools_triggered": [
-                "show_week"
-              ],
+              "tools_triggered": "show_week",
               "expected_behavior": "Renders the planner card for the current week with the account's existing blocks in day columns. The user can switch to a single day, go to the previous or next week, and open the planner fullscreen. Nothing is written."
             },
             {
               "description": "Plan the afternoon as proposed changes the user can adjust",
               "prompt": "Plan my afternoon in Superfocus around my most important task",
-              "tools_triggered": [
-                "get_me",
-                "get_tasks",
-                "get_blocks",
-                "propose_changes"
-              ],
+              "tools_triggered": "get_me, get_tasks, get_blocks, propose_changes",
               "expected_behavior": "Reads the profile, open tasks and today's blocks, then calls propose_changes. The planner shows the proposed blocks as dashed blocks next to the existing ones. Nothing is written until the user taps Keep on the card; Discard leaves the calendar unchanged."
             },
             {
               "description": "Turn pasted notes into tasks under the right goals",
               "prompt": "Add these to Superfocus as tasks under the right goals: draft the Q4 budget, call the landlord about the lease, book a dentist appointment",
-              "tools_triggered": [
-                "get_goals",
-                "create_tasks"
-              ],
+              "tools_triggered": "get_goals, create_tasks",
               "expected_behavior": "Reads the goals, maps each item to the best matching goal, lists the mapping and asks for confirmation, then creates the three tasks and says which goal each one went under."
             },
             {
               "description": "Check progress on goals and milestones",
               "prompt": "How are my Superfocus goals doing this season?",
-              "tools_triggered": [
-                "get_goals"
-              ],
+              "tools_triggered": "get_goals",
               "expected_behavior": "Reads goals with milestones and summarizes progress per goal, the next milestone and its deadline, and anything that looks stuck. Nothing is written."
             },
             {
               "description": "Run a weekly review",
               "prompt": "Run my weekly review in Superfocus",
-              "tools_triggered": [
-                "get_reviews",
-                "get_focus",
-                "get_goals"
-              ],
+              "tools_triggered": "get_reviews, get_focus, get_goals",
               "expected_behavior": "Reads the latest weekly review, the focus score and hours per goal for the last 7 days, and the goals, then writes a short review with wins, misses, hours per goal against priority and one suggestion per goal. Offers to plan next week. Nothing is written."
             }
           ],
