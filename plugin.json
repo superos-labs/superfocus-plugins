@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "superfocus",
   "version": "1.0.0",
-  "description": "Plan your day, review your week, capture tasks and check in on goals with your Superfocus season, goals, tasks and calendar.",
+  "description": "Brief your morning, plan your day, close it, review your week, capture tasks and check in on goals with your Superfocus season, goals, tasks and calendar.",
   "author": {
     "name": "SuperOS Labs",
     "email": "help@superfocus.me",
@@ -23,7 +23,7 @@
       "interface": {
         "displayName": "Superfocus",
         "shortDescription": "Plan days around your goals",
-        "longDescription": "Superfocus keeps your season, goals, milestones, tasks and calendar in one place. With this plugin you can plan your day with fewer, longer blocks, run a weekly review that compares hours per goal with your intent, turn pasted notes into tasks mapped to your goals, and check progress on each goal. Reading is always available. Changes to your calendar, tasks and goals only happen if you allow edits when you connect, and you are asked to confirm before anything is written.",
+        "longDescription": "Superfocus keeps your season, goals, milestones, tasks and calendar in one place. With this plugin you can get a five-line brief of your day, plan it with fewer, longer blocks, close it by carrying unfinished work to tomorrow, run a weekly review that compares hours per goal with your intent, turn pasted notes into tasks mapped to your goals, and check progress on each goal. Reading is always available. Changes to your calendar, tasks and goals only happen if you allow edits when you connect, and you are asked to confirm before anything is written.",
         "developerName": "Odyssey Labs Limited",
         "category": "Productivity",
         "capabilities": [
@@ -46,34 +46,34 @@
         "test_cases": {
           "positive": [
             {
-              "description": "Summarize the week's calendar",
-              "prompt": "What does my week look like in Superfocus?",
-              "tools_triggered": "get_me, get_blocks",
-              "expected_behavior": "Reads the profile for the timezone and the current week's blocks, then summarizes the week day by day: booked time, protected blocks and free stretches. Nothing is written."
+              "description": "Brief the day without changing it",
+              "prompt": "What does my day look like in Superfocus?",
+              "tools_triggered": "get_me, get_blocks, get_goals",
+              "expected_behavior": "Reads the profile for the timezone, today's blocks and the goals, then answers in five lines or fewer: meetings in order, the one block that moves the core goal, free stretches and any clash. Nothing is written."
             },
             {
               "description": "Plan the afternoon and book it after a yes",
               "prompt": "Plan my afternoon in Superfocus around my most important task",
-              "tools_triggered": "get_me, get_tasks, get_blocks, create_blocks",
-              "expected_behavior": "Reads the profile, open tasks and today's blocks, then shows a short plan of times and tasks and asks for a yes. Nothing is written until the user agrees; after a yes it calls create_blocks for the agreed blocks and says what it booked."
+              "tools_triggered": "get_me, get_goals, get_tasks, get_blocks, create_blocks",
+              "expected_behavior": "Reads the profile, goals, open tasks and today's blocks, then shows a short plan of times and tasks and asks for a yes. Nothing is written until the user agrees; after a yes it calls create_blocks for the agreed blocks and says what it booked."
             },
             {
               "description": "Turn pasted notes into tasks under the right goals",
               "prompt": "Add these to Superfocus as tasks under the right goals: draft the Q4 budget, call the landlord about the lease, book a dentist appointment",
-              "tools_triggered": "get_goals, create_tasks",
+              "tools_triggered": "get_me, get_goals, get_tasks, create_tasks",
               "expected_behavior": "Reads the goals, maps each item to the best matching goal, lists the mapping and asks for confirmation, then creates the three tasks and says which goal each one went under."
             },
             {
               "description": "Check progress on goals and milestones",
               "prompt": "How are my Superfocus goals doing this season?",
-              "tools_triggered": "get_goals",
-              "expected_behavior": "Reads goals with milestones and summarizes progress per goal, the next milestone and its deadline, and anything that looks stuck. Nothing is written."
+              "tools_triggered": "get_me, get_goals, get_focus",
+              "expected_behavior": "Reads goals with milestones and tasks plus focus hours per goal, then summarizes progress per goal, hours against priority, checkable blockers and the next milestone. Nothing is written."
             },
             {
               "description": "Run a weekly review",
               "prompt": "Run my weekly review in Superfocus",
-              "tools_triggered": "get_reviews, get_focus, get_goals",
-              "expected_behavior": "Reads the latest weekly review, the focus score and hours per goal for the last 7 days, and the goals, then writes a short review with wins, misses, hours per goal against priority and one suggestion per goal. Offers to plan next week. Nothing is written."
+              "tools_triggered": "get_me, get_focus, get_stats, get_goals, get_tasks, get_reviews",
+              "expected_behavior": "Reads the week window, focus hours and planned-vs-spent per goal, goals with milestones, tasks completed this week and the latest weekly review, then writes a short review with wins (with counts), misses, hours per goal against priority and one suggestion per goal. Offers a journal note and time next week. Nothing is written without a yes."
             }
           ],
           "negative": [
@@ -93,7 +93,7 @@
         }
       },
       "publication": {
-        "release_notes": "First release. Plan your day from your open tasks and calendar, run a weekly review, turn notes into tasks under your goals and check in on goal progress."
+        "release_notes": "First release. Brief your morning, plan your day from your open tasks and calendar, close the day, run a weekly review, turn notes into tasks under your goals and check in on goal progress."
       }
     }
   }

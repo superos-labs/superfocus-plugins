@@ -6,12 +6,14 @@ The same repository works as a Claude plugin, an OpenAI plugin package and a Gem
 
 ## What you get
 
-Four skills:
+Six skills:
 
-- `plan-my-day`: reads today's tasks and calendar, proposes a block plan with fewer, longer blocks, and books it after you agree.
-- `weekly-review`: summarizes wins and misses, hours per goal against your intent, and one suggestion per goal.
-- `capture-tasks`: turns pasted notes or meeting text into tasks mapped to your goals.
-- `goal-check-in`: shows progress per milestone, blockers and the next milestone for each goal.
+- `morning-brief`: five lines on today, meetings, the block worth protecting, free stretches and clashes. Read-only.
+- `plan-my-day`: picks the daily highlight, time-blocks open tasks around existing events with fewer, longer blocks, moves or clears blocks after you agree.
+- `end-of-day`: what got done against the plan, carries unfinished work to tomorrow, saves a short wins note.
+- `weekly-review`: wins and misses with counts, hours per goal against your intent, one suggestion per goal, optional journal note and time next week.
+- `capture-tasks`: turns pasted notes or meeting text into tasks mapped to your goals and milestones.
+- `goal-check-in`: progress per milestone, hours per goal, checkable blockers and the next milestone; creates or updates goals and milestones after you agree.
 
 The server also exposes read tools (profile, goals, tasks, blocks, recurring items, reviews, focus score, journal, activity, focus sessions, latest assessment, meeting notes, screen time, stats) and, only when your grant allows edits, write tools for blocks, tasks, goals, milestones, sleep schedule, journal notes and notes for the Superfocus coach.
 
@@ -23,7 +25,7 @@ Claude (Claude Code):
 
 ```
 /plugin marketplace add superos-labs/superfocus-plugins
-/plugin install superfocus --marketplace superos-labs/superfocus-plugins
+/plugin install superfocus@superfocus-plugins
 ```
 
 Or upload this folder as a zip in Customize > Plugins > Add > Upload plugin, then connect Superfocus from the plugin's Connectors tab.

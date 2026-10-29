@@ -2,11 +2,24 @@
   "name": "superfocus",
   "displayName": "Superfocus",
   "version": "1.0.0",
-  "description": "Plan your day, review your week, capture tasks and check in on goals with your Superfocus season, goals, tasks and calendar.",
-  "author": { "name": "SuperOS Labs", "url": "https://superfocus.me" },
+  "description": "Brief your morning, plan your day, close it, review your week, capture tasks and check in on goals with your Superfocus season, goals, tasks and calendar.",
+  "author": {
+    "name": "SuperOS Labs",
+    "url": "https://superfocus.me"
+  },
   "homepage": "https://superfocus.me/mcp",
   "repository": "https://github.com/superos-labs/superfocus-plugins",
   "license": "MIT",
   "privacyPolicyUrl": "https://superfocus.me/privacy",
-  "keywords": ["planning", "productivity", "calendar", "goals", "tasks"]
+  "keywords": [
+    "planning",
+    "productivity",
+    "calendar",
+    "goals",
+    "tasks"
+  ],
+  "icon": "./assets/icon.png",
+  "supportUrl": "https://superfocus.me/contact",
+  "termsOfServiceUrl": "https://superfocus.me/terms",
+  "documentationUrl": "https://superfocus.me/mcp"
 }

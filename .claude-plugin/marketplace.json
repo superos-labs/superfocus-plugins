@@ -5,13 +5,13 @@
     "url": "https://superfocus.me"
   },
   "metadata": {
-    "description": "Superfocus plugins: plan your day, review your week, capture tasks and check in on goals."
+    "description": "Superfocus plugins: brief your morning, plan your day, close it, review your week, capture tasks and check in on goals."
   },
   "plugins": [
     {
       "name": "superfocus",
       "source": "./",
-      "description": "Plan your day, review your week, capture tasks and check in on goals with your Superfocus season, goals, tasks and calendar."
+      "description": "Brief your morning, plan your day, close it, review your week, capture tasks and check in on goals with your Superfocus season, goals, tasks and calendar."
     }
   ]
 }
