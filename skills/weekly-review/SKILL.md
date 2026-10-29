@@ -19,7 +19,7 @@ The user wants to look back at the week and decide what to change.
    - Misses: what slipped or got no time.
    - Hours per goal against intent: compare time spent with each goal's priority. Core goals should get the most time.
    - One suggestion per goal, concrete and small.
-5. Offer to plan next week. If the user says yes, call `get_tasks` and `get_blocks` for next week's dates and propose blocks for the goals that were short on time. If `propose_changes` is listed, propose them with it so the user can adjust and keep them from the planner card.
+5. Offer to plan next week. If the user says yes, call `get_tasks` and `get_blocks` for next week's dates and propose blocks for the goals that were short on time.
 
 ## Before writing
 

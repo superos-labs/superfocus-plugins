@@ -46,16 +46,16 @@
         "test_cases": {
           "positive": [
             {
-              "description": "Show the week as an interactive planner",
-              "prompt": "Show my week in Superfocus",
-              "tools_triggered": "show_week",
-              "expected_behavior": "Renders the planner card for the current week with the account's existing blocks in day columns. The user can switch to a single day, go to the previous or next week, and open the planner fullscreen. Nothing is written."
+              "description": "Summarize the week's calendar",
+              "prompt": "What does my week look like in Superfocus?",
+              "tools_triggered": "get_me, get_blocks",
+              "expected_behavior": "Reads the profile for the timezone and the current week's blocks, then summarizes the week day by day: booked time, protected blocks and free stretches. Nothing is written."
             },
             {
-              "description": "Plan the afternoon as proposed changes the user can adjust",
+              "description": "Plan the afternoon and book it after a yes",
               "prompt": "Plan my afternoon in Superfocus around my most important task",
-              "tools_triggered": "get_me, get_tasks, get_blocks, propose_changes",
-              "expected_behavior": "Reads the profile, open tasks and today's blocks, then calls propose_changes. The planner shows the proposed blocks as dashed blocks next to the existing ones. Nothing is written until the user taps Keep on the card; Discard leaves the calendar unchanged."
+              "tools_triggered": "get_me, get_tasks, get_blocks, create_blocks",
+              "expected_behavior": "Reads the profile, open tasks and today's blocks, then shows a short plan of times and tasks and asks for a yes. Nothing is written until the user agrees; after a yes it calls create_blocks for the agreed blocks and says what it booked."
             },
             {
               "description": "Turn pasted notes into tasks under the right goals",
@@ -93,7 +93,7 @@
         }
       },
       "publication": {
-        "release_notes": "First release. See your day or week as an interactive planner, plan your day with proposed blocks you can drag before keeping them, run a weekly review, turn notes into tasks under your goals and check in on goal progress."
+        "release_notes": "First release. Plan your day from your open tasks and calendar, run a weekly review, turn notes into tasks under your goals and check in on goal progress."
       }
     }
   }

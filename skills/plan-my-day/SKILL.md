@@ -19,15 +19,11 @@ The user wants a realistic plan for a day: what to do, in what order, and when.
 
 ## Before writing
 
-If `propose_changes` is listed, call it with the plan instead of writing. The planner card shows the proposed blocks next to the existing ones, the user can drag them to other times, and nothing is saved until they tap Keep. Do not call the write tools yourself after that.
-
-Propose work as `type` task blocks with the goal's `goalId`: pass the `taskId` of an existing task, or leave it out for new work and the task is created when the user keeps it. Use `type` protected only when the user asks to hold time for a goal.
-
-Otherwise show the proposed plan as a short list of times and tasks, and ask for a yes. Do not call any write tool before the user agrees. If the write tools (`create_blocks`, `update_blocks`) are not listed, tell the user edits are off for this connection and point them to Settings > Integrations > MCP in Superfocus. You can still give the plan as text.
+Show the proposed plan as a short list of times and tasks, and ask for a yes. Do not call any write tool before the user agrees. If the write tools (`create_blocks`, `update_blocks`) are not listed, tell the user edits are off for this connection and point them to Settings > Integrations > MCP in Superfocus. You can still give the plan as text.
 
 After a yes:
 
-- Call `create_blocks` with `type` task and the task's `taskId` to give an existing task time. Times are local, `YYYY-MM-DD HH:mm`.
+- Call `create_blocks` with `type` task and the task's `taskId` to give an existing task time. For new work call `create_tasks` with `startLocal` and `endLocal` so the task and its block are created together. Use `type` protected only when the user asks to hold time for a goal. Times are local, `YYYY-MM-DD HH:mm`.
 - Call `update_blocks` with the `blockId` to move or resize a block that already exists. Moving never creates a second block.
 - Use only ids returned by the read tools. Never invent an id.
 
